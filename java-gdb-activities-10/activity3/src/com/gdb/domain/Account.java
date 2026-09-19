@@ -22,7 +22,7 @@ public class Account {
         if(balance < 0 ){
             throw new IllegalArgumentException("Initial balance cannot be negative");
         }                       
-        if(pin.matches("\\d{4}")){
+        if(!pin.matches("\\d{4}")){
             throw new IllegalArgumentException("PIN must be 4 digits");
         }
         this.accountNumber = accountNumber;
@@ -50,7 +50,7 @@ public class Account {
             return false;
         }
         //   2. If newPin is null or not exactly 4 digits, return false.
-        if(pin==null || pin.matches("\\d{4}")){
+        if(pin==null || !pin.matches("\\d{4}")){
             return false;
         }
         //   3. Otherwise store newPin in the pin field and return true.
